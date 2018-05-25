@@ -233,7 +233,7 @@ public class FileUtils {
         Path filePath = fileSystem.getPath(first, more);
         fileSystem.close();
         
-        return path;
+        return filePath;
     }
 
     public static Path findFile(Path directoryPath, String fileName) {
