@@ -228,7 +228,11 @@ public class FileUtils {
     }
 
     public static Path getPath(URI uri, String first, String... more) throws IOException {
-        FileSystem fileSystem = FileSystems.newFileSystem(uri, Collections.<String, String>emptyMap());
+        //Verify if the file system not already exist then is thrown exception java.nio.file.FileSystemAlreadyExistsException
+        FileSystem fileSystem = FileSystems.getFileSystem(uri);
+        if(fileSystem == null) {
+          fileSystem = FileSystems.newFileSystem(uri, Collections.<String, String>emptyMap());
+        }
 
         return fileSystem.getPath(first, more);
     }
