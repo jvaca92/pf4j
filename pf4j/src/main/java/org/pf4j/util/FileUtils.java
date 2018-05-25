@@ -230,7 +230,7 @@ public class FileUtils {
     public static Path getPath(URI uri, String first, String... more) throws IOException {
 
         FileSystem fileSystem = FileSystems.newFileSystem(uri, Collections.<String, String>emptyMap());
-        Path filePath = fileSystem.getPath(first, more)
+        Path filePath = fileSystem.getPath(first, more);
         fileSystem.close();
         
         return path;
